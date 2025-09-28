@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Epunda+Slab:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SUSE+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ESTILOS HEADER */
+
+body {
+    background-color: #0E283B;
+}
+
+.container {
+    display: flex;
+    width: 100vw;
+    height: 60px;
+    box-shadow: 2px 0 10px #000;
+    transition: all .3s;
+}
+
+.header {
+    display: flex;
+    width: 1400px;
+    height: 100%;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: "Epunda Slab", serif;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 20px;
+    color: #000000;
+    text-shadow: 2px 2px 1px #25AFF3;
+}
+
+.agregar-gasto {
+    cursor: pointer;
+    padding: 5px 15px;
+    border-radius: 7px;
+    border: none;
+    color: #fff;
+    box-shadow: 1px 1px 4px #00000070;
+    background-color: #25AFF3;
+}
+
+.selects {
+    display: flex;
+    gap: 20px;
+}
+
+.filtro-categoria, .filtro-precio {
+    cursor: pointer;
+    border: none;
+    background-color: #25AFF3;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 10px;
+}
+
+.filtro-categoria:focus, .filtro-precio:focus {
+    outline: none;
+}
+
+.popup {
+    position: absolute;
+    border: 1px solid #25AFF3;
+    opacity: 0;
+    transform: translateY(-500px);
+    left: 800px;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: all .3s;
+    background-color: #fff;
+}
+
+.categoria {
+    width: 173px;
+}
+
+.fecha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botones {
+    display: flex;
+    gap: 10px;
+}
+
+.guardar, .editar-popup {
+    cursor: pointer;
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: #25AFF3;
+    color: #fff;
+    box-shadow: 1px 1px 4px #00000040;
+}
+
+.editar-popup {
+    background-color: #67D2A0;
+}
+
+.cerrar {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    display: flex;
+    padding: 0 6px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background-color: #f00;
+    color: #fff;
+}
+
+.mensaje-item {
+    position: absolute;
+    display: flex;
+    top: -50px;
+    left: 840px;
+    border-radius: 10px;
+    color: #fff;
+    width: 300px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    box-shadow: 1px 1px 4px #00000020;
+    font-family: "SUSE Mono", sans-serif;
+    opacity: 0;
+    transition: all .3s;
+    z-index: 50;
+}
+
+.emerge {
+    top: 30px;
+    left: 840px;
+    opacity: 1;
+}
+
+.verde {
+    background-color: #269546;
+}
+
+.rojo {
+    background-color: #f00;
+}
+
+.popupActivo {
+    opacity: 1;
+    transform: translateY(200px);
+    z-index: 10
+}
+
+.containerActivo {
+    filter: blur(3px)
+}
+
+.gastosContainerActivo {
+    filter: blur(3px)
+}
+
+
+
+
+
+/* COONTENIDO */
+
+
+.datos {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 1400px;
+    margin: auto;
+    gap: 50px;
+    margin-top: 20px;
+}
+
+.padre-gasto {
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #1E6094;
+    color: #fff;
+}
+
+.container-gasto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.desc-gasto, .cate-gasto, .monto-gasto {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 190px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #103F91;
+}
+
+.desc-gasto {
+    padding-top: 5px;
+}
+
+.desc-gasto::after {
+    position: absolute;
+    content: "Descripción";
+    font-size: 12px;
+    top: -8px;
+    color: #103F91;
+}
+
+.cate-gasto::after {
+    position: absolute;
+    content: "Categoría";
+    font-size: 12px;
+    top: -11px;
+    color: #103F91;
+}
+
+.monto-gasto::after {
+    position: absolute;
+    content: "Monto";
+    font-size: 12px;
+    top: -11px;
+    color: #103F91;
+}
+
+.fecha-gasto {
+    position: relative;
+}
+
+.fecha-gasto::after {
+    position: absolute;
+    content: "Fecha";
+    font-size: 12px;
+    top: -11px;
+    left: 22px;
+    color: #103F91;
+}
+
+.botones-gasto {
+    display: flex;
+    gap: 20px;
+}
+
+.editar-gasto, .eliminar-gasto {
+    cursor: pointer;
+    display: flex;
+    padding: 2px 15px;
+    border-radius: 5px;
+}
+
+.editar-gasto {
+    border: 1px solid #67D2A0;
+    color: #fff;
+    background-color: #67D2A0;
+}
+
+.eliminar-gasto {
+    border: 1px solid #f00;
+    color: #fff;
+    background-color: #f00;
+}

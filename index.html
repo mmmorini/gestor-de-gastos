@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de gastos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <div class="popup">
+        <button class="cerrar">x</button>
+        <div class="descripcion">
+            <p class="p-descripcion">Descripción</p>
+            <input class="input-descripcion" type="text" placeholder="Descripción">
+        </div>
+
+        <div class="categoria">
+            <p class="p-categoria">Categoría</p>
+            <select class="input-categoria">
+                <option value="default">Seleccione una categoría</option>
+                <option value="Comida">Comida</option>
+                <option value="Combustible">Nafta / Gas</option>
+                <option value="Auto">Auto</option>
+            </select>
+        </div>
+
+        <div class="monto">
+            <p class="p-monto">Monto</p>
+            <input class="input-monto" type="number" placeholder="Monto">
+        </div>
+
+        <div class="fecha">
+            <p class="p-fecha">Fecha</p>
+            <input class="input-fecha" type="date">
+        </div>
+
+        <div class="botones">
+            <button class="guardar">Guardar</button>
+            <button class="editar-popup">Editar</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="selects">
+                <select class="filtro-categoria">
+                    <option value="default">Default</option>
+                    <option value="Comida">Comida</option>
+                    <option value="Combustible">Nafta / Gas</option>
+                    <option value="Auto">Auto</option>
+                </select>
+                <select class="filtro-precio">
+                    <option value="default">Default</option>
+                    <option value="Mayor">Mayor</option>
+                    <option value="Menor">Menor</option>
+                </select>
+            </div>
+            <div class="logo">GESTOR DE GASTOS</div>
+            <div class="agregar">
+                <button class="agregar-gasto">Agregar gasto +</button>
+            </div>
+        </header>
+    </div>
+    <div class="datos"></div>
+</body>
+</html>
