@@ -4,7 +4,7 @@ Aplicación web simple para registrar y llevar un control de los gastos personal
 
 ## Demo en Vivo 🚀
 
-*(Próximamente... En nuestra siguiente misión, desplegaremos el sitio y pondremos el link aquí.)*
+[Ver la demo en vivo](https://spontaneous-griffin-672824.netlify.app/)
 
 ## Captura de Pantalla 📸
 
