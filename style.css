@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Epunda+Slab:ital,wght@0,300..900;1,300..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=SUSE+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
 }
 
+body {
+    background-color: #F4F6F8;
+    font-family: 'Inter', sans-serif;
+}
+
 
 /* ESTILOS HEADER */
-
-body {
-    background-color: #0E283B;
-}
 
 .container {
     display: flex;
@@ -23,7 +23,8 @@ body {
 
 .header {
     display: flex;
-    width: 1400px;
+    width: 90%;
+    max-width: 1400px;
     height: 100%;
     margin: auto;
     align-items: center;
@@ -31,9 +32,9 @@ body {
 }
 
 .logo {
-    font-family: "Epunda Slab", serif;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
     font-size: 25px;
-    font-weight: bold;
     letter-spacing: 20px;
     color: #000000;
     text-shadow: 2px 2px 1px #25AFF3;
@@ -71,8 +72,9 @@ body {
     position: absolute;
     border: 1px solid #25AFF3;
     opacity: 0;
-    transform: translateY(-500px);
-    left: 800px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
     width: 300px;
     height: 400px;
     display: flex;
@@ -134,7 +136,8 @@ body {
     position: absolute;
     display: flex;
     top: -50px;
-    left: 840px;
+    left: 50%;
+    transform: translateX(-50%);
     border-radius: 10px;
     color: #fff;
     width: 300px;
@@ -143,7 +146,6 @@ body {
     align-items: center;
     font-size: 16px;
     box-shadow: 1px 1px 4px #00000020;
-    font-family: "SUSE Mono", sans-serif;
     opacity: 0;
     transition: all .3s;
     z-index: 50;
@@ -151,7 +153,8 @@ body {
 
 .emerge {
     top: 30px;
-    left: 840px;
+    transform: translateX(-50%);
+    left: 50%;
     opacity: 1;
 }
 
@@ -165,7 +168,7 @@ body {
 
 .popupActivo {
     opacity: 1;
-    transform: translateY(200px);
+    transform: translate(-50%, -50%);
     z-index: 10
 }
 
@@ -187,7 +190,8 @@ body {
 .datos {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    width: 1400px;
+    width: 90%;
+    max-width: 1400px;
     margin: auto;
     gap: 50px;
     margin-top: 20px;
@@ -200,8 +204,10 @@ body {
     justify-content: space-around;
     align-items: center;
     border-radius: 10px;
-    background-color: #1E6094;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
+    box-shadow: 2px 2px 10px #00000050;
+    padding: 20px;
 }
 
 .container-gasto {
@@ -217,19 +223,20 @@ body {
     align-items: center;
     justify-content: center;
     width: 190px;
-    padding-bottom: 8px;
+    padding-top: 8px;
+    padding-bottom: 2px;
     border-bottom: 1px solid #103F91;
 }
 
 .desc-gasto {
-    padding-top: 5px;
+    padding-top: 8px;
 }
 
 .desc-gasto::after {
     position: absolute;
     content: "Descripción";
     font-size: 12px;
-    top: -8px;
+    top: -6px;
     color: #103F91;
 }
 
@@ -237,7 +244,7 @@ body {
     position: absolute;
     content: "Categoría";
     font-size: 12px;
-    top: -11px;
+    top: -6px;
     color: #103F91;
 }
 
@@ -245,19 +252,20 @@ body {
     position: absolute;
     content: "Monto";
     font-size: 12px;
-    top: -11px;
+    top: -6px;
     color: #103F91;
 }
 
 .fecha-gasto {
     position: relative;
+    padding-top: 8px;
 }
 
 .fecha-gasto::after {
     position: absolute;
     content: "Fecha";
     font-size: 12px;
-    top: -11px;
+    top: -6px;
     left: 22px;
     color: #103F91;
 }
@@ -284,4 +292,50 @@ body {
     border: 1px solid #f00;
     color: #fff;
     background-color: #f00;
+}
+
+
+/* MEDIA QUERIES */
+
+/* Estilos para tablets */
+@media (max-width: 1024px) {
+    .datos {
+        grid-template-columns: repeat(3, 1fr);
+    } 
+    .logo {
+        font-size: 23px;
+        letter-spacing: 5px;
+    }
+}
+
+/* Estilos para móviles */
+@media (max-width: 768px) {
+    .datos {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .logo {
+        font-size: 13px;
+        letter-spacing: 0;
+    }
+
+    .selects {
+        display: flex;
+        gap: 7px;
+    }
+
+    .filtro-categoria, .filtro-precio {
+        padding: 0;
+        width: 100%;
+        height: 20px;
+        font-size: 12px;
+    }
+
+    .agregar {
+        font-size: 8px;
+    }
+    
+    .agregar-gasto {
+        padding: 2px 7px;
+    }
 }
