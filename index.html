@@ -8,16 +8,16 @@
     <script src="index.js" defer></script>
 </head>
 <body>
-    <div class="popup">
-        <button class="cerrar">x</button>
+    <form class="popup">
+        <button type="button" class="cerrar">x</button>
         <div class="descripcion">
-            <p class="p-descripcion">Descripción</p>
-            <input class="input-descripcion" type="text" placeholder="Descripción">
+            <label for="input-descripcion" class="label-descripcion">Descripción</label>
+            <input id="input-descripcion" class="input-descripcion" type="text" placeholder="Descripción">
         </div>
 
         <div class="categoria">
-            <p class="p-categoria">Categoría</p>
-            <select class="input-categoria">
+            <label for="input-categoria" class="label-categoria">Categoría</label>
+            <select id="input-categoria" class="input-categoria">
                 <option value="default">Seleccione una categoría</option>
                 <option value="Comida">Comida</option>
                 <option value="Combustible">Nafta / Gas</option>
@@ -26,20 +26,20 @@
         </div>
 
         <div class="monto">
-            <p class="p-monto">Monto</p>
-            <input class="input-monto" type="number" placeholder="Monto">
+            <label for="input-monto" class="label-monto">Monto</label>
+            <input id="input-monto" class="input-monto" type="number" placeholder="Monto">
         </div>
 
         <div class="fecha">
-            <p class="p-fecha">Fecha</p>
-            <input class="input-fecha" type="date">
+            <label for="input-fecha" class="label-fecha">Fecha</label>
+            <input id="input-fecha" class="input-fecha" type="date">
         </div>
 
         <div class="botones">
-            <button class="guardar">Guardar</button>
-            <button class="editar-popup">Editar</button>
+            <button type="submit" class="guardar">Guardar</button>
+            <button type="button" class="editar-popup">Editar</button>
         </div>
-    </div>
+    </form>
     
     <div class="container">
         <header class="header">

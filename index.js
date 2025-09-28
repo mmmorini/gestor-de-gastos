@@ -1,7 +1,7 @@
 // --- SELECCIÓN DE ELEMENTOS ---
 
 const agregarGasto = document.querySelector(".agregar-gasto");
-const popup = document.querySelector(".popup");
+const formPopup = document.querySelector(".popup");
 const container = document.querySelector(".container");
 const cruzPopup = document.querySelector(".cerrar");
 const guardarGastoBtn = document.querySelector(".guardar");
@@ -18,6 +18,7 @@ const filtroPrecio = document.querySelector(".filtro-precio");
 // ----- VARIABLES DE ESTADO -----
 
 let modoEdicion = false;
+let idGastoEditando = null;
 
 // -------- FUNCIONES DE UI --------
 
@@ -123,13 +124,13 @@ function actualizarEstadoPopup() {
 };
 
 function abrirPopup() {
-    popup.classList.add("popupActivo");
+    formPopup.classList.add("popupActivo");
     container.classList.add("containerActivo");
     gastosContainer.classList.add("gastosContainerActivo");
 };
 
 function cerrarPopup() {
-    popup.classList.remove("popupActivo");
+    formPopup.classList.remove("popupActivo");
     container.classList.remove("containerActivo");
     gastosContainer.classList.remove("gastosContainerActivo");
     limpiarInputs();
@@ -159,10 +160,9 @@ function abrirEdicionGasto(id) {
         inputCate.value = gasto.categoria;
         inputMonto.value = gasto.monto;
         inputFecha.value = gasto.fecha;
-    }
 
-    // Noté que no ocurre nada raro, no veo ningún error en la ejecución
-    btnConfirmarEdicion.addEventListener("click", () => { guardarEdicion(id) }, {once: true} );
+        idGastoEditando = gasto.id
+    }
 }
 
 
@@ -273,12 +273,24 @@ function aplicarFiltros() {
 
 // ------------ EVENTOS ------------
 
+btnConfirmarEdicion.addEventListener("click", () => {
+    if (modoEdicion && idGastoEditando) {
+        guardarEdicion(idGastoEditando);
+        idGastoEditando = null;
+        modoEdicion = false;
+    }
+    actualizarEstadoPopup();
+});
+
 agregarGasto.addEventListener("click", () => {
     abrirPopup();
 });
 
-guardarGastoBtn.addEventListener("click", () => {
-    guardarNuevoGasto();
+formPopup.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!modoEdicion) {
+        guardarNuevoGasto();
+    }
 });
 
 cruzPopup.addEventListener("click", () => {
